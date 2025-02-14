@@ -11,11 +11,181 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --purple-500: #8b5cf6;
+    --blue-500: #3b82f6;
+    --indigo-500: #6366f1;
+    --cyan-500: #06b6d4;
+    --yellow-500: #eab308;
+    --green-500: #22c55e;
+    --pink-500: #ec4899;
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: auto;
+  background: linear-gradient( rgba(14, 14, 14, 0.938),#303640);
+}
+
+
+
+
+#con{
+  filter: drop-shadow(3px 3px 3px rgb(79, 79, 79));
+}
+
+
+
+
+#social-container {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icon {
+  transition: transform 0.3s ease;
+  color: #ffffff;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+}
+
+.social-icon svg {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+}
+
+.social-icon:hover {
+  color: #0077b5;
+  /* LinkedIn blue - change as needed */
+}
+
+.social-icon:nth-child(1):hover {
+  color: #343232;
+}
+
+/* GitHub */
+.social-icon:nth-child(2):hover {
+  color: #2C64F6;
+}
+
+/* Facebook */
+.social-icon:nth-child(4):hover {
+  color: #2D63BB;
+}
+
+/* LinkedIn */
+
+
+#mainsection {
+  background: rgb(40, 42, 47);
+  background: radial-gradient(circle, rgba(40, 42, 47, 1) 0%, rgba(40, 42, 47, 1) 0%, #191b1f 46%);
+}
+
+
+
+@media (max-width:1023px) {
+
+  .text-home{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.card {
+  position: relative;
+  width: 350px;
+  aspect-ratio: 16/9;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  box-shadow: 0 0 0 5px #ffffff80;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card svg {
+  width: 48px;
+  fill: #333;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.card__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+  font-weight: 700;
+}
+
+.card:hover svg {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 10px;
+  font-size: 12px;
+  color: #777;
+  line-height: 1.4;
+}
+
+.card__button {
+  padding: 15px;
+  border-radius: 8px;
+  background: #777;
+  border: none;
+  color: white;
+}
+
+.secondary {
+  background: transparent;
+  color: #777;
+  border: 1px solid #777;
 }
