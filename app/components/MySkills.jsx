@@ -2,8 +2,18 @@
 'use client';
 import { motion } from 'framer-motion';
 import React from 'react';
-import { DiHtml5, DiCss3, DiBootstrap, DiJavascript, DiReact } from 'react-icons/di';
-import { SiTailwindcss, SiNextdotjs, SiCplusplus, SiPython } from 'react-icons/si';
+import { DiHtml5, DiCss3, DiBootstrap, DiJavascript, DiReact,DiCsharp  } from 'react-icons/di';
+import { SiTailwindcss, SiNextdotjs, SiCplusplus } from 'react-icons/si';
+
+
+const PythonIcon = () => (
+  <svg viewBox="0 0 128 128" className="w-[70px] h-[70px]">
+    <path fill="#FFD43B" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z" />
+    <path fill="#3776AB" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z" />
+  </svg>
+);
+
+
 
 const JavaIcon = () => (
   <svg viewBox="0 0 128 128" className="w-[70px] h-[70px]">
@@ -21,6 +31,7 @@ const CSharpIcon = () => (
     <path fill="#68217A" d="M78.6 64c0 1.5.3 2.9.8 4.2l-10.3 6c-.6-1.1-.9-2.3-.9-3.6 0-4.2 3.4-7.6 7.6-7.6 1.1 0 2.2.2 3.2.7l10.4-6c-2.1-3.2-5.7-5.3-9.8-5.3-6.4 0-11.6 5.2-11.6 11.6s5.2 11.6 11.6 11.6c4.1 0 7.7-2.1 9.8-5.3l-10.4-6c-1 .5-2.1.7-3.2.7-4.2 0-7.6-3.4-7.6-7.6 0-1.3.3-2.5.9-3.6l10.3 6c-.5 1.3-.8 2.7-.8 4.2z" />
   </svg>
 );
+
 
 const skills = [
   {
@@ -65,7 +76,7 @@ const skills = [
   },
   {
     name: 'Python',
-    icon: <SiPython size={70} className="text-[#3776AB] dark:text-[#FFD43B]" />,
+    icon: <PythonIcon />,
     color: 'blue'
   },
   {
@@ -116,7 +127,7 @@ const MySkills = () => {
                 whileHover={{ scale: 1.1, rotate: 10 }}
               >
                 <div className="absolute inset-0 bg-white/10 blur-3xl opacity-0 group-hover:opacity-30 transition-opacity rounded-full" />
-                
+
                 <motion.span
                   className="text-6xl mb-1 transition-colors"
                   style={{ color: `var(--${skill.color}-500)` }}
@@ -142,7 +153,7 @@ const MySkills = () => {
 
               <h1>{skill.name}</h1>
 
-              <div 
+              <div
                 className="absolute inset-0 rounded-full blur-[20px] opacity-0 group-hover:opacity-20 transition-opacity"
                 style={{ backgroundColor: `var(--${skill.color}-500)` }}
               />
