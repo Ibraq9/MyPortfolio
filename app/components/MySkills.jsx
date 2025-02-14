@@ -2,7 +2,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import React from 'react';
-import { DiHtml5, DiCss3, DiBootstrap, DiJavascript, DiReact,DiCsharp  } from 'react-icons/di';
+import { DiHtml5, DiCss3, DiBootstrap, DiJavascript, DiReact, DiCsharp } from 'react-icons/di';
 import { SiTailwindcss, SiNextdotjs, SiCplusplus } from 'react-icons/si';
 
 
@@ -66,12 +66,12 @@ const skills = [
   },
   {
     name: 'Next.js',
-    icon: <SiNextdotjs size={70} className="text-gray-900 dark:text-white" />,
+    icon: <SiNextdotjs size={70} className="text-black dark:text-white" />, // Add color class
     color: 'gray'
   },
   {
     name: 'C++',
-    icon: <SiCplusplus size={70} className="text-blue"/>,
+    icon: <SiCplusplus size={70} className="text-[#00319c]" />, // C++ brand color
     color: 'blue'
   },
   {
@@ -151,11 +151,10 @@ const MySkills = () => {
                 />
               </motion.div>
 
-              <h1>{skill.name}</h1>
+              <h1 style={{ color: 'white' }}>{skill.name}</h1>
 
               <div
                 className="absolute inset-0 rounded-full blur-[20px] opacity-0 group-hover:opacity-20 transition-opacity"
-                style={{ backgroundColor: `var(--${skill.color}-500)` }}
               />
             </motion.div>
           ))}
