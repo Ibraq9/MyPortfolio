@@ -36,57 +36,57 @@ const CSharpIcon = () => (
 const skills = [
   {
     name: 'HTML',
-    icon: <DiHtml5 size={70} className="text-[#E44D26]" />,
+    icon: <DiHtml5 size={70} className="text-white" />,
     color: 'orange'
   },
   {
     name: 'CSS',
-    icon: <DiCss3 size={70} className="text-[#1572B6]" />,
+    icon: <DiCss3 size={70} className="text-white" />,
     color: 'blue'
   },
   {
     name: 'Bootstrap',
-    icon: <DiBootstrap size={70} className="text-[#7952B3]" />,
+    icon: <DiBootstrap size={70} className="text-white" />,
     color: 'indigo'
   },
   {
     name: 'Tailwind',
-    icon: <SiTailwindcss size={70} className="text-[#06B6D4]" />,
+    icon: <SiTailwindcss size={70} className="text-white" />,
     color: 'cyan'
   },
   {
     name: 'JavaScript',
-    icon: <DiJavascript size={70} className="text-[#F7DF1E]" />,
+    icon: <DiJavascript size={70} className="text-white" />,
     color: 'yellow'
   },
   {
     name: 'React',
-    icon: <DiReact size={70} className="text-[#61DAFB]" />,
+    icon: <DiReact size={70} className="text-white" />,
     color: 'blue'
   },
   {
     name: 'Next.js',
-    icon: <SiNextdotjs size={70} className="text-gray-900 dark:text-white" />,
+    icon: <SiNextdotjs size={70} className="text-white" />,
     color: 'gray'
   },
   {
     name: 'C++',
-    icon: <SiCplusplus size={70} />,
+    icon: <SiCplusplus size={70} className="text-white" />,
     color: 'blue'
   },
   {
     name: 'Python',
-    icon: <PythonIcon />,
+    icon: <PythonIcon className="text-white"/>,
     color: 'blue'
   },
   {
     name: 'C#',
-    icon: <CSharpIcon />,
+    icon: <CSharpIcon className="text-white"/>,
     color: 'purple'
   },
   {
     name: 'Java',
-    icon: <JavaIcon />,
+    icon: <JavaIcon className="text-white"/>,
     color: 'red'
   }
 ];
@@ -151,7 +151,7 @@ const MySkills = () => {
                 />
               </motion.div>
 
-              <h1>{skill.name}</h1>
+              <h1 className='text-white'>{skill.name}</h1>
 
               <div
                 className="absolute inset-0 rounded-full blur-[20px] opacity-0 group-hover:opacity-20 transition-opacity"

@@ -18,7 +18,7 @@ const ProjectCard = ({ projectName, projectDescription, projectImage,project_hre
                     <div className='flex gap-2 my-1'>
                         {
                             project_tech.map((item,index)=>(
-                                <p key={index} className='w-auto h-8 bg-[#24262A] p-1 shadow-lg rounded-md font-bold'>{item}</p>
+                                <p key={index} className='w-auto h-8 bg-[#24262A] p-1 shadow-lg rounded-md font-bold text-white'>{item}</p>
                             ))
                         }
                     </div>

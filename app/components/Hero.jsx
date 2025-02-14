@@ -28,10 +28,10 @@ const Hero = () => {
                         Hi, I'm Ibraheem
                     </h1>
                     <div className='text-home flex flex-wrap gap-2 md:gap-4 md:mt-5'>
-                        <span className='text-xl md:text-2xl font-semibold px-4 py-2 bg-cyan-600/20 rounded-full backdrop-blur-sm border border-cyan-400/30'>
+                        <span className='text-xl md:text-2xl font-semibold px-4 py-2 bg-cyan-600/20 rounded-full backdrop-blur-sm border border-cyan-400/30 text-white'>
                             Software Engineer
                         </span>
-                        <span className='text-xl md:text-2xl font-semibold px-4 py-2 bg-blue-600/20 rounded-full backdrop-blur-sm border border-blue-400/30'>
+                        <span className='text-xl md:text-2xl font-semibold px-4 py-2 bg-blue-600/20 rounded-full backdrop-blur-sm border border-blue-400/30 text-white'>
                             Web Developer
                         </span>
                     </div>
