@@ -109,7 +109,7 @@ const Certificate = () => {
     ];
 
     return (
-        <div className="min-h-screen py-12 px-4 mt-9">
+        <div className="min-h-screen py-12 px-4 mt-9" id='Certifications'>
             <div className="flex gap-1 items-center justify-center mb-4">
                 <p className="w-8 sm:w-12 h-[1px] sm:h-[2px] bg-gray-700"></p>
                 <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 text-3xl">

@@ -1,14 +1,12 @@
 import React from 'react';
-import NavBar from "./components/NavBar";
-import Hero from "./components/Hero";
-import Spline from '@splinetool/react-spline/next';
-import ProjectCard from './components/ProjectCard';
-import prayer from './assets/prayer.png';
+import NavBar from "./Components/NavBar";
 import MySkills from './components/MySkills';
 import MyProjects from './components/MyProjects'
 import Certificate from './components/Certificate';
 import Contact  from './components/Contact';
-
+import Hero from './components/Hero';
+import UpperSocial from './Components/UpperSocial'
+import ProjectSlider from './Components/ProjectSlider'
 
 
 const AllComponents = () => {
@@ -22,14 +20,16 @@ const AllComponents = () => {
                 }}
             >
                 <div className="mt-2 lg:mt-20 lg:mb-40 flex flex-row lg:flex-col">
-                    <NavBar />
-                    <Hero />
+                    <UpperSocial />
+                    <Hero/>
                 </div>
 
-
+                <NavBar/>
                 <MySkills/>
 
                 <MyProjects/>
+
+                <ProjectSlider/>
 
               <Certificate/>
 

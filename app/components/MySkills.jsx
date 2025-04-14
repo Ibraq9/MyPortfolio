@@ -33,6 +33,7 @@ const CSharpIcon = () => (
 );
 
 
+
 const skills = [
   {
     name: 'HTML',
@@ -93,74 +94,75 @@ const skills = [
 
 const MySkills = () => {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8" id="skills">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-4xl font-bold text-center mb-16">
-          <div className='flex justify-center'>
-            <div className='flex gap-1 items-center'>
-              <p className='w-8 sm:w-12 h-[1px] sm:h-[2px] bg-gray-700'></p>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                Technical Skills
-              </span>
-              <p className='w-8 sm:w-12 h-[1px] sm:h-[2px] bg-gray-700'></p>
+    <section  className="py-20 px-4 sm:px-6 lg:px-8" id="skills">
+   
+        <div className="max-w-7xl mx-auto">
+          <div className="text-4xl font-bold text-center mb-16">
+            <div className='flex justify-center'>
+              <div className='flex gap-1 items-center'>
+                <p className='w-8 sm:w-12 h-[1px] sm:h-[2px] bg-gray-700'></p>
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                My current Technical skills
+                </span>
+                <p className='w-8 sm:w-12 h-[1px] sm:h-[2px] bg-gray-700'></p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="flex justify-center items-center flex-wrap gap-8">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              className="group relative flex flex-col items-center"
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: index * 0.1,
-                duration: 0.5,
-                type: "spring",
-                stiffness: 100
-              }}
-              viewport={{ once: true }}
-            >
+          <div className="flex justify-center items-center flex-wrap gap-8">
+            {skills.map((skill, index) => (
               <motion.div
-                className="relative w-32 h-32 mb-4 flex items-center justify-center"
-                whileHover={{ scale: 1.1, rotate: 10 }}
+                key={skill.name}
+                className="group relative flex flex-col items-center"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.5,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                viewport={{ once: true }}
               >
-                <div className="absolute inset-0 bg-white/10 blur-3xl opacity-0 group-hover:opacity-30 transition-opacity rounded-full" />
-
-                <motion.span
-                  className="text-6xl mb-1 transition-colors"
-                  style={{ color: `var(--${skill.color}-500)` }}
-                >
-                  {skill.icon}
-                </motion.span>
-
                 <motion.div
-                  className="absolute inset-0 border-2 rounded-full"
-                  style={{ borderColor: `var(--${skill.color}-500)` }}
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{
-                    scale: 1.2,
-                    opacity: 0.3,
-                    transition: {
-                      repeat: Infinity,
-                      duration: 2,
-                      ease: "easeInOut"
-                    }
-                  }}
+                  className="relative w-32 h-32 mb-4 flex items-center justify-center"
+                  whileHover={{ scale: 1.1, rotate: 10 }}
+                >
+                  <div className="absolute inset-0 bg-white/10 blur-3xl opacity-0 group-hover:opacity-30 transition-opacity rounded-full" />
+
+                  <motion.span
+                    className="text-6xl mb-1 transition-colors"
+                    style={{ color: `var(--${skill.color}-500)` }}
+                  >
+                    {skill.icon}
+                  </motion.span>
+
+                  <motion.div
+                    className="absolute inset-0 border-2 rounded-full"
+                    style={{ borderColor: `var(--${skill.color}-500)` }}
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{
+                      scale: 1.2,
+                      opacity: 0.3,
+                      transition: {
+                        repeat: Infinity,
+                        duration: 2,
+                        ease: "easeInOut"
+                      }
+                    }}
+                  />
+                </motion.div>
+
+                <h1 style={{ color: 'white' }}>{skill.name}</h1>
+
+                <div
+                  className="absolute inset-0 rounded-full blur-[20px] opacity-0 group-hover:opacity-20 transition-opacity"
                 />
               </motion.div>
-
-              <h1 style={{ color: 'white' }}>{skill.name}</h1>
-
-              <div
-                className="absolute inset-0 rounded-full blur-[20px] opacity-0 group-hover:opacity-20 transition-opacity"
-              />
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+    </section >
   );
 };
 
