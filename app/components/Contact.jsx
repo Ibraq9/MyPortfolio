@@ -1,183 +1,154 @@
-"use client";
 
-import { useState } from 'react';
-import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/outline';
+"use client"
+import React, { useState, useEffect } from 'react';
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
 
-export default function ContactSection() {
-  const [status, setStatus] = useState({ message: '', isError: false });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setStatus({ message: '', isError: false });
-
-    const formData = {
-      name: e.target.name.value.trim(),
-      email: e.target.email.value.trim(),
-      message: e.target.message.value.trim()
-    };
-
-    try {
-      const response = await fetch('https://formspree.io/f/mrbeaavq', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus({ message: 'Message sent successfully!', isError: false });
-        e.target.reset();
-      } else {
-        throw new Error(data.error || 'Failed to send message');
-      }
-    } catch (error) {
-      setStatus({ message: error.message || 'An error occurred. Please try again.', isError: true });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+export default function Contact() {
+  // Animation state
+  const [animate, setAnimate] = useState(false);
+  
+  // Trigger animation every few seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimate(true);
+      setTimeout(() => setAnimate(false), 1500);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">Let's Connect</h2>
-          <p className="text-lg text-gray-300">
-            Have a question or want to work together? Reach out!
+    <section id="Contact" className="py-10 text-white">
+      <div className="container mx-auto px-4 max-w-5xl">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
+          <div className="w-24 h-1 bg-indigo-500 mx-auto mb-6"></div>
+          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+            I'm currently available for freelance work or full-time positions. Feel free to reach out!
           </p>
         </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-gray-800 rounded-xl p-8 shadow-2xl">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                  required
-                  disabled={isSubmitting}
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  rows="4"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                  required
-                  disabled={isSubmitting}
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-
-              {status.message && (
-                <p className={`text-center mt-4 text-sm ${status.isError ? 'text-red-400' : 'text-green-400'
-                  }`}>
-                  {status.message}
-                </p>
-              )}
-            </form>
-          </div>
-
-          {/* Contact Info & Socials */}
-          <div className="space-y-8">
-            <div className="bg-gray-800 rounded-xl p-8 shadow-2xl space-y-6">
-              <div className="flex items-start space-x-4">
-                <a className='flex gap-5' target='_blank' href='https://www.google.com/maps/place/Minya,+Qism+Minya,+Minya,+Minya+Governorate,+Egypt/@28.095217,30.7095215,13z/data=!3m1!4b1!4m6!3m5!1s0x145b2501ca8ed45f:0x1682970743a18080!8m2!3d28.0870967!4d30.7618397!16s%2Fm%2F02r6ww5?entry=ttu&g_ep=EgoyMDI1MDIxMS4wIKXMDSoASAFQAw%3D%3D'>
-                  <MapPinIcon className="h-6 w-6 text-indigo-400 mt-1" />
-                  <div>
-                    <h3 className="text-lg font-medium text-white">Location</h3>
-                    <p className="text-gray-400">Minia, Egypt</p>
-                  </div>
-                </a>
-
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <EnvelopeIcon className="h-6 w-6 text-indigo-400 mt-1" />
+        
+        <div className="grid md:grid-cols-2 gap-5">
+          {/* Contact Information */}
+          <div className=" bg-gray-800 bg-opacity-50 p-8 rounded-lg shadow-xl backdrop-blur-sm border border-gray-700">
+            <h3 className="text-2xl font-semibold mb-6 text-indigo-400">Contact Information</h3>
+            
+            <div className="space-y-6">
+              <div className="flex items-center">
+                <div className="p-3 bg-indigo-600 bg-opacity-30 rounded-full mr-4">
+                  <Mail className="text-indigo-400" size={20} />
+                </div>
                 <div>
-                  <h3 className="text-lg font-medium text-white">Email</h3>
-                  <a
-                    href="mailto:ebrahimqa99@gmail.com"
-                    className="text-indigo-400 hover:text-indigo-300"
-                  >
-                    ebrahimqa99@gmail.com
-                  </a>
+                  <p className="text-sm text-gray-400">Email</p>
+                  <p className="text-lg">ibrahimabualqassim@gmail.com</p>
                 </div>
               </div>
-
-              <div className="flex items-start space-x-4">
-                <PhoneIcon className="h-6 w-6 text-indigo-400 mt-1" />
+              
+              <div className="flex items-center">
+                <div className="p-3 bg-indigo-600 bg-opacity-30 rounded-full mr-4">
+                  <Phone className="text-indigo-400" size={20} />
+                </div>
                 <div>
-                  <h3 className="text-lg font-medium text-white">Phone</h3>
-                  <a
-                    href="tel:+2001069068234"
-                    className="text-indigo-400 hover:text-indigo-300"
-                  >
-                    +20 01069068234
-                  </a>
+                  <p className="text-sm text-gray-400">Phone</p>
+                  <p className="text-lg">+20 01069068234</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center">
+                <div className="p-3 bg-indigo-600 bg-opacity-30 rounded-full mr-4">
+                  <MapPin className="text-indigo-400" size={20} />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-400">Location</p>
+                  <p className="text-lg">Minya ,Egypt</p>
                 </div>
               </div>
             </div>
-
-            {/* Social Links */}
-            <div className="bg-gray-800 rounded-xl p-8 shadow-2xl">
-              <h3 className="text-lg font-medium text-white mb-6">Find me on</h3>
-              <div className="flex justify-center space-x-8">
-                <a href="https://github.com/Ibraq9" target='_blank' className="social-icon" aria-label="GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                  </svg>
+            
+            <div className="mt-10">
+              <h4 className="text-xl font-medium mb-4 text-indigo-400">Connect</h4>
+              <div className="flex space-x-4">
+                <a href="https://github.com/Ibraq9" className="p-3 bg-gray-700 rounded-full hover:bg-indigo-600 transition-colors duration-300">
+                  <Github size={20} />
                 </a>
-
-
-                <a href="https://www.facebook.com/profile.php?id=100074378787389" target='_blank' className="social-icon" aria-label="Facebook">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z" />
-                  </svg>
-                </a>
-
-
-                <a href="https://www.linkedin.com/in/ibraheem-qassem-949639265/" target='_blank' className="social-icon" aria-label="LinkedIn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z" />
-                  </svg>
+                <a href="https://www.linkedin.com/in/ibrahim-abu-alqassem-949639265/" className="p-3 bg-gray-700 rounded-full hover:bg-indigo-600 transition-colors duration-300">
+                  <Linkedin size={20} />
                 </a>
               </div>
+            </div>
+          </div>
+          
+          {/* Animated Illustration Section */}
+          <div className="bg-gray-800 bg-opacity-50 p-8 rounded-lg shadow-xl backdrop-blur-sm border border-gray-700 flex flex-col items-center justify-center">
+            <div className="mb-6 relative w-64 h-64">
+              {/* SVG Animation */}
+              <svg 
+                viewBox="0 0 400 400" 
+                className={`w-full h-full ${animate ? 'animate-bounce' : ''}`}
+              >
+                {/* Computer/Laptop Base */}
+                <rect x="100" y="220" width="200" height="20" rx="5" fill="#3949AB" />
+                
+                {/* Computer Screen */}
+                <rect 
+                  x="120" 
+                  y="120" 
+                  width="160" 
+                  height="100" 
+                  rx="5" 
+                  fill="#1A1E2E" 
+                  className={`${animate ? 'animate-pulse' : ''}`}
+                />
+                <rect x="130" y="130" width="140" height="80" rx="2" fill="#6366F1" />
+                
+                {/* Code Elements */}
+                <rect x="140" y="140" width="60" height="5" rx="2" fill="#E0E7FF" />
+                <rect x="140" y="155" width="40" height="5" rx="2" fill="#C7D2FE" />
+                <rect x="190" y="155" width="30" height="5" rx="2" fill="#818CF8" />
+                <rect x="140" y="170" width="80" height="5" rx="2" fill="#E0E7FF" />
+                <rect x="140" y="185" width="50" height="5" rx="2" fill="#C7D2FE" />
+                <rect x="200" y="185" width="25" height="5" rx="2" fill="#818CF8" />
+                
+                {/* Coffee Cup */}
+                <g className={`${animate ? 'animate-pulse' : ''}`}>
+                  <rect x="290" y="180" width="25" height="30" rx="5" fill="#4F46E5" />
+                  <rect x="297" y="175" width="10" height="5" rx="2" fill="#818CF8" />
+                  <path d="M290 190 C310 180, 320 195, 290 205" stroke="#A5B4FC" strokeWidth="2" fill="none" />
+                </g>
+                
+                {/* Send Button/Envelope */}
+                <g 
+                  transform={`translate(${animate ? '220, 60' : '200, 80'})`} 
+                  className="transition-all duration-1000 ease-in-out"
+                >
+                  <rect x="0" y="0" width="30" height="20" rx="4" fill="#4F46E5" />
+                  <polygon points="5,5 25,5 15,15" fill="white" />
+                </g>
+                
+                {/* Person */}
+                <circle cx="200" cy="70" r="20" fill="#6366F1" />
+                <path d="M180 280 C180 240, 220 240, 220 280" stroke="#6366F1" strokeWidth="5" fill="none" />
+                
+                {/* Arrows and connection lines - animated */}
+                <path 
+                  d={`M220 70 Q ${animate ? '270' : '250'}, ${animate ? '50' : '70'} 290 80`} 
+                  stroke="#A5B4FC" 
+                  strokeWidth="2" 
+                  strokeDasharray="5,5" 
+                  fill="none"
+                  className="transition-all duration-1000 ease-in-out" 
+                />
+                
+                <circle cx="290" cy="80" r="5" fill={animate ? "#4F46E5" : "#818CF8"} />
+              </svg>
+            </div>
+            
+            <div className="text-center space-y-4">
+              <h3 className="text-2xl font-bold text-indigo-400">Let's Build Something Amazing</h3>
+              <p className="text-gray-300">I bring creative solutions to challenging problems. Whether you need a custom website, application, or digital experience, I'd love to collaborate.</p>
+              <a href="mailto:ibrahimabualqassim@gmail.com" className="inline-block py-3 px-8 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-medium shadow-lg transition-colors duration-300">
+                Contact
+              </a>
             </div>
           </div>
         </div>
