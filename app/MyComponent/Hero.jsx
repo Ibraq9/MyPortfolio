@@ -132,7 +132,7 @@ const Hero = () => {
 
                         <div className="my-8">
                             <p className="text-white/80 mb-6 leading-relaxed">
-                                I'm Ibrahim Muhammad Abu Al-Qasim, a passionate developer with a love for creating warm,
+                                I'm Ibrahim Mohamed Aboulkasem, a passionate developer with a love for creating warm,
                                 inviting digital spaces. Currently studying at the Faculty of Computers and Information.
                             </p>
 
