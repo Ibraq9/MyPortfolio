@@ -8,7 +8,7 @@ import JavaScript from '../assets/JavaScript.png';
 import Html_css from '../assets/Html_css.png';
 import ES6 from '../assets/ES6.png';
 import ML from '../assets/ML.png';
-
+import MEARN from '../assets/MEARN.jpg'
 
 const Certificate = () => {
 
@@ -19,6 +19,28 @@ const Certificate = () => {
     }
 
     const certificates = [
+        {
+            content: (
+                <div className="p-4 bg-white rounded-lg shadow-md">
+                    <h3 className="text-lg text-gray-800 font-bold">MEARN Stack Develpment</h3>
+                    <p className="text-sm text-gray-500 mt-1">24/8/2023 || Information Technology Institute (ITI)</p>
+                    <div className='flex justify-between'>
+                        <div className='flex gap-1 items-center'>
+                            <MapPin color='blue' size={15} />
+                            <p className="mt-2 text-gray-600"> Minia , Egypt </p>
+                        </div>
+
+                        <button
+                            onClick={() => setType('MEARN')}
+                            className='bg-blue-900 text-white font-mono p-1 rounded-lg'
+                        >
+                            Show
+                        </button>
+                    </div>
+
+                </div>
+            ),
+        },
         {
             content: (
                 <div className="p-4 bg-white rounded-lg shadow-md">
@@ -119,7 +141,7 @@ const Certificate = () => {
             </div>
             <TimeLine items={certificates} />
 
-            {Type === 'html' ? <CertificateImage onClose={CloseImageClicked} ImageSrc={Html_css} /> : Type === 'JavaScript' ? <CertificateImage onClose={CloseImageClicked} ImageSrc={JavaScript} /> : Type === 'TypeScript' ? <CertificateImage onClose={CloseImageClicked} ImageSrc={TypeScript} /> : Type === 'ES6' ? <CertificateImage onClose={CloseImageClicked} ImageSrc={ES6} /> :Type==='ML'?<CertificateImage onClose={CloseImageClicked} ImageSrc={ML} />: null}
+            {Type === 'html' ? <CertificateImage onClose={CloseImageClicked} ImageSrc={Html_css} /> : Type === 'JavaScript' ? <CertificateImage onClose={CloseImageClicked} ImageSrc={JavaScript} /> : Type === 'TypeScript' ? <CertificateImage onClose={CloseImageClicked} ImageSrc={TypeScript} /> : Type === 'ES6' ? <CertificateImage onClose={CloseImageClicked} ImageSrc={ES6} /> :Type==='ML'?<CertificateImage onClose={CloseImageClicked} ImageSrc={ML} />:Type==="MEARN"?<CertificateImage onClose={CloseImageClicked} ImageSrc={MEARN} />: null}
         </div>
     );
 };
