@@ -1,8 +1,7 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 import { Carousel, Card } from "../../components/ui/apple-cards-carousel";
-import Prayer from '..//assets/prayer.png';
+import Prayer from '../assets/prayer.png';
 import e_commerce from '../assets/e-commerce.png';
 import Queue from '../assets/queue.png';
 import Social from '../assets/social.png';

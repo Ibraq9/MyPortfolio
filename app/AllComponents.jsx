@@ -1,12 +1,12 @@
 import React from 'react';
-import NavBar from "./Components/NavBar";
-import MySkills from './components/MySkills';
-import MyProjects from './components/MyProjects'
-import Certificate from './components/Certificate';
-import Contact  from './components/Contact';
-import Hero from './components/Hero';
-import UpperSocial from './Components/UpperSocial'
-import ProjectSlider from './Components/ProjectSlider'
+import NavBar from "./MyComponent/NavBar";
+import MySkills from './MyComponent/MySkills';
+import MyProjects from './MyComponent/MyProjects'
+import Certificate from './MyComponent/Certificate';
+import Contact  from './MyComponent/Contact';
+import Hero from './MyComponent/Hero';
+import UpperSocial from './MyComponent/UpperSocial'
+import ProjectSlider from './MyComponent/ProjectSlider'
 
 
 const AllComponents = () => {

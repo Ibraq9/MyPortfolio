@@ -1,6 +1,4 @@
 
-
-
 import React from 'react';
 import ProjectCard from './ProjectCard';
 import Prayer from '../assets/prayer.png';
