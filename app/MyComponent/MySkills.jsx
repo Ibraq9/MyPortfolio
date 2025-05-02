@@ -1,8 +1,8 @@
 'use client';
 import { motion } from 'framer-motion';
 import React from 'react';
-import { DiHtml5, DiCss3, DiBootstrap, DiJavascript, DiReact, DiCsharp } from 'react-icons/di';
-import { SiTailwindcss, SiNextdotjs, SiCplusplus } from 'react-icons/si';
+import { DiHtml5, DiCss3, DiBootstrap, DiJavascript, DiReact } from 'react-icons/di';
+import { SiTailwindcss, SiNextdotjs, SiCplusplus,SiTypescript ,SiPrisma} from 'react-icons/si';
 
 // Python Icon
 const PythonIcon = () => (
@@ -33,11 +33,13 @@ const skills = [
   { name: 'Tailwind', icon: <SiTailwindcss size={70} className="text-[#06B6D4]" />, color: '#06B6D4' },
   { name: 'JavaScript', icon: <DiJavascript size={70} className="text-[#F7DF1E]" />, color: '#F7DF1E' },
   { name: 'React', icon: <DiReact size={70} className="text-[#61DAFB]" />, color: '#61DAFB' },
-  { name: 'Next.js', icon: <SiNextdotjs size={70} className="text-black dark:text-white" />, color: '#000000' },
+  { name: 'Next.js', icon: <SiNextdotjs size={70} color='white' />, color: '#000000' },
   { name: 'C++', icon: <SiCplusplus size={70} className="text-[#00319c]" />, color: '#00319c' },
   { name: 'Python', icon: <PythonIcon />, color: '#3776AB' },
   { name: 'C#', icon: <CSharpIcon />, color: '#68217A' },
-  { name: 'Java', icon: <JavaIcon />, color: '#EA2D2E' }
+  { name: 'Java', icon: <JavaIcon />, color: '#EA2D2E' },
+  { name: 'Typescript', icon: <SiTypescript color='#3A7BCA'/>, color: '#3A7BCA' },
+  { name: 'Prisma', icon: <SiPrisma color='#6FB6AF'/>, color: '#6FB6AF' }
 ];
 
 // Component
@@ -100,7 +102,7 @@ const MySkills = () => {
                 />
               </motion.div>
 
-              <h1 className="text-white">{skill.name}</h1>
+              <h1 className="text-white text-bold">{skill.name}</h1>
 
               <div
                 className="absolute inset-0 rounded-full blur-[20px] opacity-0 group-hover:opacity-20 transition-opacity"
