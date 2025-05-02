@@ -2,7 +2,7 @@ import React from 'react'
 
 const NavBar = () => {
     return (
-        <div className='sm:block hidden'>
+        <div className='sm:block hidden mr-7'>
 
             <div id='social-container' className="flex px-3  flex-col lg:flex-row lg:justify-end">
 
