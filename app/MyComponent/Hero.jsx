@@ -171,7 +171,7 @@ const Hero = () => {
                         <div className="flex items-center gap-6 mt-10 text-white/80">
                             <div className="flex items-center gap-2">
                                 <MapPin size={16} className="text-white" />
-                                <span className="">Minia, Egypt</span>
+                                <span className="">Cairo, Egypt</span>
                             </div>
                             <div className="w-px h-8 bg-white/30"></div>
                             <div className="flex items-center gap-2">
