@@ -1,116 +1,133 @@
-'use client';
-import { motion } from 'framer-motion';
-import React from 'react';
-import { DiHtml5, DiCss3, DiBootstrap, DiJavascript, DiReact } from 'react-icons/di';
-import { SiTailwindcss, SiNextdotjs, SiCplusplus,SiTypescript ,SiPrisma} from 'react-icons/si';
+"use client";
 
-// Python Icon
-const PythonIcon = () => (
-  <svg viewBox="0 0 128 128" className="w-[70px] h-[70px]">
-    <path fill="#FFD43B" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z" />
-    <path fill="#3776AB" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z" />
-  </svg>
-);
+import { motion } from "framer-motion";
+import React from "react";
+import {
+  DiHtml5,
+  DiCss3,
+  DiBootstrap,
+  DiJavascript,
+  DiReact,
+  DiJava,
+  DiMysql,
+} from "react-icons/di";
+import {
+  SiTailwindcss,
+  SiNextdotjs,
+  SiCplusplus,
+  SiTypescript,
+  SiPrisma,
+  SiPython,
+  SiTensorflow,
+  SiPytorch,
+  SiScikitlearn,
+  SiOpencv,
+  SiPandas,
+  SiPostgresql,
+  SiNumpy,
+  SiMongodb,
+  SiFastapi,
+  SiOpenai,
+  SiHuggingface,
+  SiLangchain,
+} from "react-icons/si";
+import SectionHeading from "@/components/SectionHeading";
 
-// Placeholder Java and C# icons with fallback content
-const JavaIcon = () => (
-  <div className="w-[70px] h-[70px] flex items-center justify-center text-red-600 text-2xl font-bold">
-    Java
-  </div>
-);
+const iconSize = 40;
 
-const CSharpIcon = () => (
-  <div className="w-[70px] h-[70px] flex items-center justify-center text-purple-700 text-2xl font-bold">
-    C#
-  </div>
-);
-
-// Final Skills Array
 const skills = [
-  { name: 'HTML', icon: <DiHtml5 size={70} className="text-[#E44D26]" />, color: '#E44D26' },
-  { name: 'CSS', icon: <DiCss3 size={70} className="text-[#1572B6]" />, color: '#1572B6' },
-  { name: 'Bootstrap', icon: <DiBootstrap size={70} className="text-[#7952B3]" />, color: '#7952B3' },
-  { name: 'Tailwind', icon: <SiTailwindcss size={70} className="text-[#06B6D4]" />, color: '#06B6D4' },
-  { name: 'JavaScript', icon: <DiJavascript size={70} className="text-[#F7DF1E]" />, color: '#F7DF1E' },
-  { name: 'React', icon: <DiReact size={70} className="text-[#61DAFB]" />, color: '#61DAFB' },
-  { name: 'Next.js', icon: <SiNextdotjs size={70} color='white' />, color: '#000000' },
-  { name: 'C++', icon: <SiCplusplus size={70} className="text-[#00319c]" />, color: '#00319c' },
-  { name: 'Python', icon: <PythonIcon />, color: '#3776AB' },
-  { name: 'C#', icon: <CSharpIcon />, color: '#68217A' },
-  { name: 'Java', icon: <JavaIcon />, color: '#EA2D2E' },
-  { name: 'Typescript', icon: <SiTypescript color='#3A7BCA'/>, color: '#3A7BCA' },
-  { name: 'Prisma', icon: <SiPrisma color='#6FB6AF'/>, color: '#6FB6AF' }
+  { name: "HTML", icon: <DiHtml5 size={iconSize} className="text-[#E44D26]" />, color: "#E44D26" },
+  { name: "CSS", icon: <DiCss3 size={iconSize} className="text-[#1572B6]" />, color: "#1572B6" },
+  { name: "Bootstrap", icon: <DiBootstrap size={iconSize} className="text-[#7952B3]" />, color: "#7952B3" },
+  { name: "Tailwind", icon: <SiTailwindcss size={iconSize} className="text-[#06B6D4]" />, color: "#06B6D4" },
+  { name: "JavaScript", icon: <DiJavascript size={iconSize} className="text-[#F7DF1E]" />, color: "#F7DF1E" },
+  { name: "TypeScript", icon: <SiTypescript size={iconSize} className="text-[#3178C6]" />, color: "#3178C6" },
+  { name: "React", icon: <DiReact size={iconSize} className="text-[#61DAFB]" />, color: "#61DAFB" },
+  { name: "Next.js", icon: <SiNextdotjs size={iconSize} className="text-white" />, color: "#ffffff" },
+  { name: "Python (Backend)", label: "Python", icon: <SiPython size={iconSize} className="text-[#3776AB]" />, color: "#3776AB" },
+  { name: "FastAPI", icon: <SiFastapi size={iconSize} className="text-[#009485]" />, color: "#009485" },
+  { name: "Java", icon: <DiJava size={iconSize} className="text-[#007396]" />, color: "#007396" },
+  { name: "C++", icon: <SiCplusplus size={iconSize} className="text-[#00599C]" />, color: "#00599C" },
+  { name: "C#", icon: <div className="text-[20px] sm:text-[22px] font-bold text-[#512BD4]">C#</div>, color: "#512BD4" },
+  { name: "Python (Languages)", label: "Python", icon: <SiPython size={iconSize} className="text-[#3776AB]" />, color: "#3776AB" },
+  { name: "TensorFlow", icon: <SiTensorflow size={iconSize} className="text-[#FF6F00]" />, color: "#FF6F00" },
+  { name: "PyTorch", icon: <SiPytorch size={iconSize} className="text-[#EE4C2C]" />, color: "#EE4C2C" },
+  { name: "scikit-learn", icon: <SiScikitlearn size={iconSize} className="text-[#F7931E]" />, color: "#F7931E" },
+  { name: "OpenCV", icon: <SiOpencv size={iconSize} className="text-[#5C3EE8]" />, color: "#5C3EE8" },
+  { name: "Pandas", icon: <SiPandas size={iconSize} className="text-[#150458]" />, color: "#150458" },
+  { name: "NumPy", icon: <SiNumpy size={iconSize} className="text-[#013243]" />, color: "#013243" },
+  { name: "LangChain", icon: <SiLangchain size={iconSize} className="text-[#1C3C3C]" />, color: "#1C3C3C" },
+  { name: "Hugging Face", icon: <SiHuggingface size={iconSize} className="text-[#FFD21E]" />, color: "#FFD21E" },
+  { name: "OpenAI", icon: <SiOpenai size={iconSize} className="text-[#412991]" />, color: "#412991" },
+  { name: "PostgreSQL", icon: <SiPostgresql size={iconSize} className="text-[#336791]" />, color: "#336791" },
+  { name: "MySQL", icon: <DiMysql size={iconSize} className="text-[#4479A1]" />, color: "#4479A1" },
+  { name: "MongoDB", icon: <SiMongodb size={iconSize} className="text-[#47A248]" />, color: "#47A248" },
+  { name: "Prisma", icon: <SiPrisma size={iconSize} className="text-[#2D3748]" />, color: "#2D3748" },
 ];
 
-// Component
+const categories = [
+  { label: "Frontend & Backend", color: "from-blue-500/20 to-cyan-500/20" },
+  { label: "AI & ML", color: "from-violet-500/20 to-purple-500/20" },
+  { label: "Languages", color: "from-amber-500/20 to-orange-500/20" },
+  { label: "Databases", color: "from-emerald-500/20 to-teal-500/20" },
+];
+
+const getCategory = (name) => {
+  const frontend_Backend = ["HTML", "CSS", "Bootstrap", "Tailwind", "JavaScript", "TypeScript", "React", "Next.js", "Python (Backend)", "FastAPI"];
+  const ai = ["TensorFlow", "PyTorch", "scikit-learn", "OpenCV", "Pandas", "NumPy", "LangChain", "Hugging Face", "OpenAI"];
+  const langs = ["Java", "C++", "C#", "Python (Languages)"];
+  const dbs = ["PostgreSQL", "MySQL", "MongoDB", "Prisma"];
+  if (frontend_Backend.includes(name)) return 0;
+  if (ai.includes(name)) return 1;
+  if (langs.includes(name)) return 2;
+  if (dbs.includes(name)) return 3;
+  return 0;
+};
+
 const MySkills = () => {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8" id="skills">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-4xl font-bold text-center mb-16">
-          <div className='flex justify-center'>
-            <div className='flex gap-1 items-center'>
-              <p className='w-8 sm:w-12 h-[1px] sm:h-[2px] bg-gray-700'></p>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-                My current Technical skills
-              </span>
-              <p className='w-8 sm:w-12 h-[1px] sm:h-[2px] bg-gray-700'></p>
+    <section className="py-24 px-4 sm:px-6 lg:px-8" id="skills">
+      <div className="max-w-6xl mx-auto">
+        <SectionHeading
+          title="Technical Skills"
+         
+        />
+
+        {categories.map((cat, catIdx) => (
+          <div key={cat.label} className="mb-12 last:mb-0">
+            <div className="flex items-center gap-3 mb-6">
+              <div className={`h-8 w-1 rounded-full bg-gradient-to-b ${cat.color}`} />
+              <h3 className="text-sm font-semibold uppercase tracking-widest text-zinc-400">
+                {cat.label}
+              </h3>
+              <span className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
+            </div>
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+              {skills.filter((_, i) => getCategory(skills[i].name) === catIdx).map((skill, index) => (
+                <motion.div
+                  key={`${skill.name}-${index}`}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05, duration: 0.4 }}
+                  whileHover={{ y: -6, scale: 1.05 }}
+                  className="group glass-card px-3 sm:px-5 py-3 sm:py-5 flex flex-col items-center gap-1.5 sm:gap-2 cursor-default w-[82px] sm:w-[100px]"
+                >
+                  <div className="relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-xl transition-all duration-300 group-hover:shadow-lg">
+                    {skill.icon}
+                    <div
+                      className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity blur-xl"
+                      style={{ backgroundColor: skill.color }}
+                    />
+                  </div>
+                  <span className="text-[10px] sm:text-xs font-medium text-zinc-300 group-hover:text-white transition-colors text-center leading-tight">
+                    {skill.label || skill.name}
+                  </span>
+                </motion.div>
+              ))}
             </div>
           </div>
-        </div>
-
-        <div className="flex justify-center items-center flex-wrap gap-8">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              className="group relative flex flex-col items-center"
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: index * 0.1,
-                duration: 0.5,
-                type: "spring",
-                stiffness: 100
-              }}
-              viewport={{ once: true }}
-            >
-              <div className="absolute inset-0 bg-white/10 blur-3xl opacity-0 group-hover:opacity-30 transition-opacity rounded-full" />
-
-              <motion.div
-                className="relative w-32 h-32 mb-4 flex items-center justify-center"
-                whileHover={{ scale: 1.1, rotate: 10 }}
-              >
-                <div className="absolute inset-0 bg-white/10 blur-3xl opacity-0 group-hover:opacity-30 transition-opacity rounded-full" />
-
-                <motion.span className="text-6xl mb-1 transition-colors">
-                  {skill.icon}
-                </motion.span>
-
-                <motion.div
-                  className="absolute inset-0 border-2 rounded-full"
-                  style={{ borderColor: skill.color }}
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{
-                    scale: 1.2,
-                    opacity: 0.3,
-                    transition: {
-                      repeat: Infinity,
-                      duration: 2,
-                      ease: "easeInOut"
-                    }
-                  }}
-                />
-              </motion.div>
-
-              <h1 className="text-white text-bold">{skill.name}</h1>
-
-              <div
-                className="absolute inset-0 rounded-full blur-[20px] opacity-0 group-hover:opacity-20 transition-opacity"
-                style={{ backgroundColor: skill.color }}
-              />
-            </motion.div>
-          ))}
-        </div>
+        ))}
       </div>
     </section>
   );

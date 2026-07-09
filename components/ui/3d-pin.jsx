@@ -37,7 +37,7 @@ export const PinContainer = ({
         </div>
       </div>
 
-      <PinPerspective title={title} />
+      {title && <PinPerspective title={title} />}
     </Link>
   );
 };

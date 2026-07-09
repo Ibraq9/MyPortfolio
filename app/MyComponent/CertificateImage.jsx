@@ -1,46 +1,49 @@
-import React from 'react';
-import Image from 'next/image';
+"use client";
+
+import React, { useEffect } from "react";
+import Image from "next/image";
+import { X } from "lucide-react";
 
 const CertificateImage = ({ ImageSrc, onClose }) => {
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 backdrop-blur-sm"
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
     >
-      <div 
-        className="relative w-full max-w-4xl p-4 rounded-lg"
+      <div
+        className="relative w-full max-w-4xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="absolute top-4 right-4 p-2 text-white bg-red-500 rounded-full hover:bg-red-600 transition-colors z-50"
+          className="absolute -top-2 -right-2 sm:top-4 sm:right-4 p-2 rounded-full
+            bg-zinc-800 border border-white/10 text-white hover:bg-violet-600 transition-colors z-50"
           onClick={onClose}
           aria-label="Close certificate"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <X size={20} />
         </button>
 
-        <div className="relative h-[80vh] rounded-lg overflow-hidden">
+        <div className="relative h-[75vh] rounded-2xl overflow-hidden glass-card">
           <Image
             src={ImageSrc}
-            alt={`Certificate`}
+            alt="Certificate"
             fill
-            style={{ objectFit: 'contain' }}
-            quality={100}
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
+            className="object-contain p-4"
+            quality={90}
           />
         </div>
       </div>
