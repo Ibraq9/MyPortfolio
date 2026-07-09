@@ -27,7 +27,6 @@ import {
   SiNumpy,
   SiMongodb,
   SiFastapi,
-  SiOpenai,
   SiHuggingface,
   SiLangchain,
 } from "react-icons/si";
@@ -58,7 +57,6 @@ const skills = [
   { name: "NumPy", icon: <SiNumpy size={iconSize} className="text-[#013243]" />, color: "#013243" },
   { name: "LangChain", icon: <SiLangchain size={iconSize} className="text-[#1C3C3C]" />, color: "#1C3C3C" },
   { name: "Hugging Face", icon: <SiHuggingface size={iconSize} className="text-[#FFD21E]" />, color: "#FFD21E" },
-  { name: "OpenAI", icon: <SiOpenai size={iconSize} className="text-[#412991]" />, color: "#412991" },
   { name: "PostgreSQL", icon: <SiPostgresql size={iconSize} className="text-[#336791]" />, color: "#336791" },
   { name: "MySQL", icon: <DiMysql size={iconSize} className="text-[#4479A1]" />, color: "#4479A1" },
   { name: "MongoDB", icon: <SiMongodb size={iconSize} className="text-[#47A248]" />, color: "#47A248" },
